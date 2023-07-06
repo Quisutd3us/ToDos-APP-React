@@ -11,7 +11,17 @@
   border:solid 1px whitesmoke;
 
 }
+.taskContainer:nth-child(3n+1){
+  background-color: #1b1b32;
+}
+.taskContainer:nth-child(3n+2){
+  background-color: #2a2a40;
+}
+.taskContainer:nth-child(3n+3){
+  background-color: #3b3b4f;
+}
 .taskText{
+  /*border:solid 1px red;*/
   width: 100%;
   height: 100%;
   font-size: 20px;
@@ -29,4 +39,5 @@
 .taskContainer.completedStyle{
   text-decoration: line-through;
   background-color: #5a01a7;
+  user-select: none;
 }

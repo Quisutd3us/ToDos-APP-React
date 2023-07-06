@@ -1,7 +1,5 @@
 import './App.css';
-import freeCodeCampLogo from './images/freecodecamp-logo.png'
-
-
+import freeCodeCampLogo from './images/freecodecamp-logo.png';
 // import Components
 import TaskList from "./components/TaskList";
 

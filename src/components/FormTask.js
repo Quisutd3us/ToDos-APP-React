@@ -1,38 +1,42 @@
-import React, {useState} from 'react'
-import '../css/formTask.css'
+import React, {useState} from 'react';
+import '../css/formTask.css';
+import {v4 as uuidv4} from 'uuid';
+
 function FormTask(props) {
 
-  const [input,setInput] =useState('')
-  const manageInput =(e)=>{
-    setInput(e.target.value)
-  }
-  const manageClick =(e)=>{
-    e.preventDefault()
-    const newTask ={
-      id:'123123',
-      text:input,
-      isCompleted:false
-    }
-    console.log(newTask)
-  }
+  const [input, setInput] = useState('');
+  const manageInput = (e) => {
+    setInput(e.target.value);
+  };
+  const manageSend = (e) => {
+    e.preventDefault();
+    let newTask = {
+      id: uuidv4(),
+      text: input,
+      isCompleted: false
+    };
+    props.onSubmit(newTask);
+  };
 
-  return(
+  return (
       <form
-        className={'taskForm'}
+          className={'taskForm'}
+          onSubmit={manageSend}
       >
         <input
-          className={'taskInput'}
-          type={'text'}
-          placeholder={'What is the task?'}
-          name={'inputTodo'}
-          onChange={manageInput}
+            className={'taskInput'}
+            type={'text'}
+            placeholder={'What is the task?'}
+            name={'inputTodo'}
+            onChange={manageInput}
+            maxLength={50}
         />
         <button
-          className={'taskAddButton'}
-          onClick={manageClick}
-        >Add Task (+)</button>
+            className={'taskAddButton'}
+        >Add Task (+)
+        </button>
       </form>
-  )
+  );
 }
 
 export default FormTask
